@@ -6,9 +6,9 @@ public class Portillo_edwin_planillaempleado {
         Scanner scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
         System.out.println("Favor ingrese las horas laboradas en el mes de parte del empleado:");
-        double horasMensual = Double.valueOf(scanner.next());
+        double horasMensual = scanner.nextDouble();
         System.out.println("Favor ingrese la tarifa por hora de trabajo:");
-        double tarifaHora = Double.valueOf(scanner.next());
+        double tarifaHora = scanner.nextDouble();
         System.out.println("Favor ingrese el nombre del empleado:");
         String nombre = scanner.next();
         double salarioSemanal = ((horasMensual*tarifaHora)*12)/52;
