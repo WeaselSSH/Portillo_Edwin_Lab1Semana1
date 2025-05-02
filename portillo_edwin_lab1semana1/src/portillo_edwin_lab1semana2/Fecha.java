@@ -32,7 +32,7 @@ public class Fecha {
             System.out.println("La diferencia de días entre la primera fecha y la segunda es de: " + diferenciaDias);
         } else{
             diferenciaDias = diasTotal2 - diasTotal1;
-            System.out.println("La diferencia de días entre la primera fecha y la segunda es de: " + diferenciaDias);
+            System.out.println("La diferencia de días entre la primera fecha y la segunda es de: " + diferenciaDias + "días.");
         }
         
     }
