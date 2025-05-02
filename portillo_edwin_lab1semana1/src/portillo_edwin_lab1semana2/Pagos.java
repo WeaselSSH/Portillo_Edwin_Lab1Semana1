@@ -22,7 +22,6 @@ public class Pagos {
         System.out.println("Categoría 4: $0 por hora extra");
         int categoriaEmpleado = scanner.nextInt();
         
-        double pagoNormal = 35.99;
         int horasNormales, horasExtras;
         
         if (horasTrabajadas <= 40) {
@@ -53,7 +52,7 @@ public class Pagos {
                 break;
         }
         
-        double pagoTotal = (horasNormales * pagoNormal) + pagoExtra;
+        double pagoTotal = (horasNormales * 35.99) + pagoExtra;
         
         System.out.println("----Información del Empleado----");
         System.out.println(String.format("Código del empleado: %d",codigoEmpleado));
