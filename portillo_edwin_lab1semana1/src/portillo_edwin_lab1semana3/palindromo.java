@@ -16,14 +16,26 @@ public class palindromo {
         
         //Menú opciones
         while (opcion != 5) {
+            System.out.println("");
+            System.out.println("***************");
+            System.out.println("  Bienvenido!");
+            System.out.println("***************");
+            System.out.println("");
+            System.out.println("*************************");
+            System.out.println("*************************");
+            System.out.println("  1. Palabra al revés");
+            System.out.println("  2. Número perfecto");
+            System.out.println("  3. Número primo");
+            System.out.println("  4. Votaciones");
+            System.out.println("  5. Salir del Sistema");
+            System.out.println("*************************");
+            System.out.println("*************************");
+            System.out.println("");
             System.out.println("Favor ingrese el número de la opción que desee elegir:");
-            System.out.println("1. Palabra al revés");
-            System.out.println("2. Número perfecto");
-            System.out.println("3. Número primo");
-            System.out.println("4. Votaciones");
-            System.out.println("5. Salir del Sistema");
+            System.out.println("");
             
             opcion = scanner.nextInt();
+            System.out.println("");
             
             switch (opcion) {
                 
@@ -33,8 +45,10 @@ public class palindromo {
                     //Declaración variables
                     int numeroPalabras, tamanioPalabra, mayorVeces = 0;
                     String palabraInvertida = "", palabraMayor = "", palabraIngresada, palabraPalindroma = "";
-        
+                    System.out.println("**************************");
                     System.out.println("Bienvenido a la opción 1!");
+                    System.out.println("**************************");
+                    System.out.println("");
                     System.out.println("Ingrese la cantidad de palabras a evaluar");
                     numeroPalabras = scanner.nextInt();
         
@@ -89,7 +103,10 @@ public class palindromo {
                     //Declaración variables
                     int numero, sumaDivisores = 0;
                     
+                    System.out.println("**************************");
                     System.out.println("Bienvenido a la opción 2!");
+                    System.out.println("**************************");
+                    System.out.println("");
                     System.out.println("Ingrese un número:");
                     numero = scanner.nextInt();
                     
@@ -115,7 +132,10 @@ public class palindromo {
                     int numeroEvaluar = random.nextInt(100), divisores = 0; 
                     String listadivisores = "";
                     
+                    System.out.println("**************************");
                     System.out.println("Bienvenido a la opción 3!");
+                    System.out.println("**************************");
+                    System.out.println("");
                     
                     //bucle para verificar sus divisores y almacenar estos mismos
                     for(i = 1; i <= numeroEvaluar; i++) {
@@ -150,7 +170,10 @@ public class palindromo {
                     int cantidadVotantes, votantesAzul = 0, votantesRojo = 0, votantesNegro = 0, votantesAmarillo = 0, votoIngresado, votosValidos = 0;
                     double porcentajeValidos;
                     
+                    System.out.println("**************************");
                     System.out.println("Bienvenido a la opción 4!");
+                    System.out.println("**************************");
+                    System.out.println("");
                      
                     System.out.println("Ingrese la cantidad de votantes en el país:");
                     cantidadVotantes = scanner.nextInt();
@@ -214,11 +237,13 @@ public class palindromo {
                 break;
                 
                 default:
+                    System.out.println("***********************************************************");
                     System.out.println("Veces ingresadas en opción 1. Palabra al revés: " + contadorOpcion1);
                     System.out.println("Veces ingresadas en opción 2. Número perfecto: " + contadorOpcion2);
                     System.out.println("Veces ingresadas en opción 3. Número primo: " + contadorOpcion3);
                     System.out.println("Veces ingresadas en opción 4. Votaciones: " + contadorOpcion4);
                     System.out.println("Saliendo del sistema...");
+                    System.out.println("***********************************************************");
             }
         }     
     }
