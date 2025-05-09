@@ -1,41 +1,132 @@
 package portillo_edwin_lab1semana3;
 import java.util.Scanner;
+import java.util.Random;
 
 public class palindromo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
         scanner.useDelimiter("\n");
         
-        int numeroPalabras, tamanioPalabra, mayorVeces = 0;
-        String palabraInvertida = "", palabraIngresada = "", palabraMayor = "";
+        //Declarar variable de opción y de bucle for
+        int opcion = 0, i, j;
         
-        
-        System.out.println("Ingrese la cantidad de palabras a evaluar");
-        numeroPalabras = scanner.nextInt();
-        
-        for (int i = 1; i <= numeroPalabras; i++) {
-            System.out.println("Palabra #" + i + " :");
-            palabraIngresada = scanner.next();
-            tamanioPalabra = palabraIngresada.length();
-            for (int j = 0; j < tamanioPalabra; j++) {
-                palabraInvertida += palabraIngresada.charAt(palabraIngresada.length()-1-j);
-            }
-            System.out.println(palabraInvertida);
-            if (palabraIngresada.length() > mayorVeces) {
-                mayorVeces = palabraIngresada.length();
-                palabraMayor = palabraIngresada;
-            } else if (palabraIngresada.length() == mayorVeces) {
-                palabraMayor += " " + palabraIngresada;
-            }
+        //Menú opciones
+        while (opcion != 6) {
+            System.out.println("Favor ingrese el número de la opción que desee elegir:");
+            System.out.println("1. Palabra al revés");
+            System.out.println("2. Número perfecto");
+            System.out.println("3. Número primo");
+            System.out.println("4.");
+            System.out.println("5. Salir del Sistema");
             
-            if (palabraInvertida.equalsIgnoreCase(palabraIngresada)) {
-                System.out.println("La palabra es palíndroma");
-            } else {
-                System.out.println("La palabra no es palíndroma");
-            }
+            opcion = scanner.nextInt();
             
-            palabraInvertida = "";
-        }
-        System.out.println("La(s) palabra(s) más larga ingresada es/son:" + palabraMayor);
+            switch (opcion) {
+                
+                //Ejercicio palabra al revés
+                case 1:
+                   
+                    //Declaración variables
+                    int numeroPalabras, tamanioPalabra, mayorVeces = 0;
+                    String palabraInvertida = "", palabraMayor = "", palabraIngresada, palabraPalindroma = "";
+        
+                    System.out.println("Bienvenido a la opción 1!");
+                    System.out.println("Ingrese la cantidad de palabras a evaluar");
+                    numeroPalabras = scanner.nextInt();
+        
+                    //Ciclo for para invertir la palbra
+                    for (i = 1; i <= numeroPalabras; i++) {
+                        System.out.println("Palabra #" + i + " :");
+                        palabraIngresada = scanner.next();
+                        tamanioPalabra = palabraIngresada.length();
+                        for (j = 0; j < tamanioPalabra; j++) {
+                            palabraInvertida += palabraIngresada.charAt(palabraIngresada.length()-1-j);
+                        }
+                    
+                    System.out.println(palabraInvertida);
+                    
+                    //Verificar si la palabra ingresada es la palabra mayor o igual que la palabra mayor anterior
+                    if (palabraIngresada.length() > mayorVeces) {
+                        mayorVeces = palabraIngresada.length();
+                        palabraMayor = palabraIngresada;
+                    } else if (palabraIngresada.length() == mayorVeces) {
+                        palabraMayor += ", " + palabraIngresada;
+                    }           
+                    
+                    palabraInvertida = "";
+                    
+                    }
+                    
+                    System.out.println("La(s) palabra(s) más larga(s) ingresada(s) es/son: " + palabraMayor + " con " + mayorVeces + " letras.");
+                    
+                    //Verificar si las palabras ingresadas son palíndromas o no
+                    for (i = 0; i < palabraMayor.length(); i++) {
+                        
+                        if (i == 0) {
+                        palabraPalindroma = palabraMayor.substring(0, palabraMayor.indexOf(','));
+                        } else {
+                        palabraPalindroma = palabraMayor.substring(0+palabraPalindroma.length()-1*i, palabraMayor.indexOf(','));   
+                        }
+                        for (j = 0; j < mayorVeces; j++) {
+                            palabraInvertida += palabraPalindroma.charAt(palabraPalindroma.length()-1-j);
+                        }
+                        
+                        if (palabraInvertida.equalsIgnoreCase(palabraMayor)) {
+                            System.out.println(palabraPalindroma + " es palíndroma.");
+                        } else {
+                            System.out.println(palabraPalindroma + " no es palíndroma");
+                        }
+                        
+                    }
+                break;
+                
+                case 2:
+                    //Declaración variables
+                    int numero, sumaDivisores = 0;
+                    
+                    System.out.println("Bienvenido a la opción 2!");
+                    System.out.println("Ingrese un número:");
+                    numero = scanner.nextInt();
+                    
+                    //Verificar si es divisor del numero ingresado
+                    for (i = 1; i < numero; i++) {
+                        if (numero % i == 0) {
+                            sumaDivisores += i;
+                        }                   
+                    } 
+                    
+                    //Verificar si el número es perfecto o no
+                    if (sumaDivisores == numero) {
+                        System.out.println("Es un número perfecto");
+                    }
+                    else {
+                        System.out.println("no es un número perfecto");
+                    }   
+                break;
+                
+                case 3: 
+                    //Declaración variables
+                    int numeroEvaluar = random.nextInt(100), divisores = 0;  
+                    
+                    
+                    System.out.println("Bienvenido a la opción 3!");
+                    
+                    for(i = 1; i < numeroEvaluar; i++) {
+                        
+                        if (numeroEvaluar % i == 0) {
+                            divisores ++; 
+                        }
+                    }
+                    
+                    if (divisores == 2) {
+                        System.out.println(numeroEvaluar + " es primo.");
+                    } else {
+                        System.out.println(numeroEvaluar + " no es primo.");
+                    }
+                    
+                break;
+            }
+        }     
     }
 }
