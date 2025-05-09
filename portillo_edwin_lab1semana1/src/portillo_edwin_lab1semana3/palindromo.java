@@ -17,7 +17,7 @@ public class palindromo {
             System.out.println("1. Palabra al revés");
             System.out.println("2. Número perfecto");
             System.out.println("3. Número primo");
-            System.out.println("4.");
+            System.out.println("4. Votaciones");
             System.out.println("5. Salir del Sistema");
             
             opcion = scanner.nextInt();
@@ -107,24 +107,44 @@ public class palindromo {
                 
                 case 3: 
                     //Declaración variables
-                    int numeroEvaluar = random.nextInt(100), divisores = 0;  
-                    
+                    int numeroEvaluar = random.nextInt(100), divisores = 0; 
+                    String listadivisores = "";
                     
                     System.out.println("Bienvenido a la opción 3!");
                     
-                    for(i = 1; i < numeroEvaluar; i++) {
+                    //bucle para verificar sus divisores y almacenar estos mismos
+                    for(i = 1; i <= numeroEvaluar; i++) {
                         
+                        //evaluar si el número i es divisor o no y almacenarlo
                         if (numeroEvaluar % i == 0) {
                             divisores ++; 
+                            
+                            //en caso que i sea disinto a número a evaluar se anexa con coma, de lo contrario se anexa sin nada
+                            if (i != numeroEvaluar) {
+                                listadivisores += String.valueOf(i) + ", ";
+                            } else {
+                                listadivisores += String.valueOf(i);
+                            }
                         }
                     }
                     
+                    //Se imprime si es o no es primo
                     if (divisores == 2) {
                         System.out.println(numeroEvaluar + " es primo.");
                     } else {
                         System.out.println(numeroEvaluar + " no es primo.");
                     }
                     
+                    System.out.println("sus divisores son: " + listadivisores);
+                    
+                break;
+                
+                case 4:
+                    
+                    
+                     System.out.println("Bienvenido a la opción 3!");
+                     
+                     
                 break;
             }
         }     
